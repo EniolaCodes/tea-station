@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 2;
+}
+.nav {
+  background-color: #222;
+  padding: 1rem 0;
+  height: 5rem;
+  position: sticky;
+  top: 0;
+  /* once .hero has position:relative, it scrolls on the nav, to change that, use z-index on .nav */
+  z-index: 21;
+}
+.nav-title {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.nav-center {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 0 auto;
+  /* border: 2px solid red; */
+}
+.hero {
+  min-height: calc(100vh - 5rem);
+  background: rgb(105, 62, 27);
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    background: linear-gradient(
+        to right,
+        rgba(105, 62, 27, 0.5),
+        rgba(105, 62, 27, 1)
+      ),
+      url(./image/coffeebean.jpg) center/cover;
+    min-height: calc(100vh - 5rem);
+  }
+}
+
+.hero-center {
+  width: 90vw;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 5rem 0;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* border: 2px solid blue; */
+}
+
+.hero-center h1 {
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-bottom: 0.75rem;
+}
+
+.hero-center p {
+  margin-bottom: 1.5rem;
+  margin: 0 auto;
+  max-width: 35em;
+  /* max-width was applied so that the text won't span across the width set for the hero-center. For the text to look good on large screen, max-width is necessary, 35/25em are the conventional value.
+  Once text align center was added to the .hero-center, the text became distorted on big screen, to fix, we either remove the max-width, this solution makes the text to look good on big screen only, the best fix is to use margin: 0 auto*/
+}
+.hero-btn {
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  letter-spacing: 2px;
+  background: transparent;
+}
+.temp {
+  min-height: 100vh;
+  background: rebeccapurple;
+}
+/* 1.To get rid of whitespaces on an element(e.g img), set display property to block.
+2.::before&after do not work on img because it is a content itself. To circumvent this, enclose the img in a div,
+3.content property must be included, it could be empty, content:"".
+4.box-sizing:border box is necessary in order to eliminate the default size of an element.
+5.When using position:absolute to cover the entire parent, set top,left,bottom, right to zero or inset:0. also we could have inset: 50px 10px 43px 5px.
+Try not to use background image on small screen.*/
